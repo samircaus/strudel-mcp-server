@@ -1,0 +1,31 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "lib": ["ES2022", "WebWorker"],
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "types": ["@cloudflare/workers-types"]
+  },
+  "include": [
+    "src/worker.ts",
+    "src/services/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/index.ts",
+    "src/server/EnhancedMCPServer*.ts",
+    "src/StrudelController.ts",
+    "src/AudioAnalyzer.ts",
+    "src/utils/Logger.ts",
+    "src/PatternStore.ts"
+  ]
+}

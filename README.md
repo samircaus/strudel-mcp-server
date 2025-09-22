@@ -245,33 +245,44 @@ stack(
 )
 ```
 
-## 🐳 Docker Support
+## ☁️ Cloudflare Workers Deployment
+
+Deploy as a remote MCP server on Cloudflare Workers for global access:
 
 ```bash
-# Build image
-docker build -t strudel-mcp .
+# Quick setup (automated)
+./setup-cloudflare.sh
 
-# Run container
-docker run -it --rm strudel-mcp
-
-# Or use docker-compose
-docker-compose up
+# Deploy
+npm run deploy
 ```
+
+Your server will be available at: `https://strudel-mcp-server.your-account.workers.dev/sse`
+
+See [CLOUDFLARE_DEPLOYMENT.md](CLOUDFLARE_DEPLOYMENT.md) for detailed instructions.
+
+
 
 ## 🔧 Development
 
 ```bash
-# Development mode with hot reload
+# Original stdio server (for Claude desktop)
 npm run dev
+
+# Cloudflare Workers dev server
+npm run dev:worker
 
 # Build TypeScript
 npm run build
 
+# Build for Workers
+npm run build:worker
+
+# Deploy to Cloudflare
+npm run deploy
+
 # Run tests
 npm test
-
-# Validate MCP server
-npm run validate
 ```
 
 ## 📊 Performance
